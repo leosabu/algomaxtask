@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>US Senate</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0e6d7bb23e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+    <script type="text/javascript" src="{% static 'js/rpie.js' %}"></script>
+</head>
+<body class="bg-dark">
+<header>
+    <nav class="navbar navbar-dark bg-dark navbar-fixed">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">US Senate<span style="color:#ff9900;">.</span></span>
+        </div>
+    </nav>
+    <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicators">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img alt="..." class="d-block w-100" src="{% static 'images/4219125.jpg' %}">
+                <div class="carousel-caption">
+                    <h5 class="animated fadeIn" style="animation-delay: 0.5s">US Senate<span
+                            style="color:#ff9900;">.</span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <img class="section-img" style="animation-delay: 0.8s"
+                 src="{% static 'images/1395261-2560x1600-[DesktopNexus.com].jpg' %}">
+            <div id="carouselExampleControls" class="carousel slide carousel-def" data-bs-ride="carousel">
+                <div class="carousel-inner" style="animation-delay: 1s">
+                    <div class="carousel-item active" id="mytable">
+                        <h2 align="center" style="color:#fff; font-size:80px;"> Senators <span style="color:#ff9900;">Details</span>.
+                        </h2>
+                        <table class="text-dark bg-light table table-striped table-hover text-center rounded"
+                               cellpadding="15px" width="100%">
+
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Birth Day</th>
+                                <th>Office Address</th>
+                                <th style="padding-right:50px">Gender</th>
+                            </tr>
+
+                            {% for i in result|slice:":10" %}
+                            <tr>
+                                <td align="left" style="padding-left:50px">{{i.person.firstname}}
+                                    {{i.person.lastname}}
+                                </td>
+                                <td>{{i.person.birthday}}</td>
+                                <td align="left" style="padding-left:60px">{{i.extra.address}}</td>
+                                <td style="padding-right:50px">{{i.person.gender}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
